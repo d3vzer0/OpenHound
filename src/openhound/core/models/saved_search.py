@@ -16,7 +16,7 @@ class Format(str, Enum):
 
 class OutputFormat(str, Enum):
     json = "json"
-    zip = "yaml"
+    zip = "zip"
 
 
 class SavedSearch(BaseModel):
@@ -107,7 +107,7 @@ class QueryBundle:
                 )
 
     def save(self, output_file: TextIOWrapper, output_format: OutputFormat = OutputFormat.json) -> None:
-        if output_format == Format.json:
+        if output_format == OutputFormat.json:
             self._to_json(output_file)
-        elif output_format == Format.yaml:
+        elif output_format == OutputFormat.zip:
             self._to_zip(output_file)

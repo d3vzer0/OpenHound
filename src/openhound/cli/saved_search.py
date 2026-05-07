@@ -18,7 +18,7 @@ class Format(str, Enum):
 
 class OutputFormat(str, Enum):
     json = "json"
-    zip = "yaml"
+    zip = "zip"
 
 
 @saved_searches.command(help="Upload saved searches to BloodHound")
@@ -75,7 +75,7 @@ def bundle(
             help="File format of the saved searches (json or yaml)",
         ),
         output_format: OutputFormat = typer.Option(
-            default=Format.json,
+            default=OutputFormat.json,
             help="File format for the saved searches bundle (json or zip)",
         )
 ):
