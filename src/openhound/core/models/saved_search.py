@@ -76,22 +76,8 @@ class QueryBundle:
         self.queries = queries
         self.file_format = file_format
 
-    # @staticmethod
-    # def load_query(cypher_query: Path,
-    #                input_format: Literal['yml', 'json'] = 'json') -> ExtendedCypherQuery | CypherQuery:
-    #     model_choices = {
-    #         'yml': SavedSearchExtended,
-    #         'json': SavedSearch,
-    #     }
-    #     cypher_model = model_choices[input_format]
-    #     with open(cypher_query, "r") as query_file:
-    #         yaml_obj = safe_load(query_file) if input_format == "yml" else json.load(query_file)
-    #         return cypher_model(**yaml_obj)
-
     @classmethod
     def from_paths(cls, all_files: list[Path], file_format: Format = Format.json) -> "QueryBundle":
-        # cypher_queries = list(input_dir.rglob(f"*.{input_format}"))
-
         model_choices = {
             'yaml': SavedSearchExtended,
             'json': SavedSearch,
